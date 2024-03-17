@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+    Define "beans" here.
+    A bean definition registers an instance of a data type with the DI container.
+    -->
+    <bean id="docBrown" class="backToTheFuture.Character" scope="prototype">
+        <constructor-arg value="Doc Brown"/>
+        <constructor-arg value="1955"/>
+    </bean>
+
+    <bean id="martyMcfly" class="backToTheFuture.Character">
+        <constructor-arg value="Marty McFly"/>
+        <constructor-arg value="2015"/>
+    </bean>
+
+    <bean id="greatScott" class="backToTheFuture.Quote">
+        <constructor-arg value="Great Scott!"/>
+        <constructor-arg ref="docBrown"/>
+    </bean>
+
+    <bean id="thatsHeavy" class="backToTheFuture.Quote">
+        <constructor-arg value="That's Heavy!"/>
+        <constructor-arg ref="martyMcfly"/>
+        <property name="otherCharacter" ref="docBrown"/>
+    </bean>
+
+    <bean id="docBrownBest" class="backToTheFuture.Quote">
+        <constructor-arg value="The Best of Doc Brown"/>
+        <constructor-arg ref="docBrown"/>
+        <property name="manyQuotes">
+            <list>
+                <value>1.21 Gigawatts!</value>
+                <value>Weight has nothing to do with it</value>
+                <value>88 miles per hour!</value>
+               <!-- list of character example
+                <ref bean="docBrown"></ref>
+                -->
+            </list>
+        </property>
+    </bean>
+</beans>

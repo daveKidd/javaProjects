@@ -1,0 +1,3 @@
+@url =  http://localhost:8080/api/console
+
+GET {{url}}/3 HTTP/1.1

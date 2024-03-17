@@ -1,0 +1,30 @@
+section{
+  width:100%;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+section .comic{
+  border:2px solid black;
+  border-radius:10px;
+  width:375px;
+  height:auto;
+  padding:10px;
+  text-align: center;
+}
+
+.thumbsUp{
+  cursor:pointer;
+  transition:.3s;
+}
+
+.thumbsUp:hover{
+  transform: scale(1.25);
+}
+
+
+
+
+
+

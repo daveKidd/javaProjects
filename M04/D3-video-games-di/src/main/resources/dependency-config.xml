@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="view" class="videogames.ui.View"/>
+
+    <bean id="repo" class="videogames.data.VideoGameFileRepository">
+        <constructor-arg value="./data/video-games.csv"/>
+    </bean>
+
+    <bean id="service" class="videogames.domain.VideoGameService">
+        <constructor-arg ref="repo"/>
+    </bean>
+
+    <bean class="videogames.ui.Controller">
+        <constructor-arg ref="view"/>
+        <constructor-arg ref="service"/>
+    </bean>
+</beans>

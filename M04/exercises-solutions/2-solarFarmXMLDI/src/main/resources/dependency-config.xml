@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- ids are unique identifiers that will be called later in ref attributes
+        class is the location of the class in the project
+        constructor arg is the value being passed into that class's constructor-->
+
+<!--    PanelFileRepository repository = new PanelFileRepository("./data/solarpanels.txt"); // the prod version-->
+<!--    PanelService service = new PanelService(repository);-->
+
+<!--    View view = new View();-->
+
+<!--    Controller controller = new Controller(service,view);-->
+<!--    controller.run();-->
+
+    <!-- VIEW -->
+    <bean id="view" class="learn.solarpanels.ui.View"/>
+
+
+    <!-- REPOSITORY -->
+    <bean id="solarPanelFileRepository" class="learn.solarpanels.data.PanelFileRepository">
+        <constructor-arg value="./data/solarpanels.txt"/>
+    </bean>
+
+    <!-- SERVICE -->
+    <bean id="solarPanelService" class="learn.solarpanels.domain.PanelService">
+        <constructor-arg ref="solarPanelFileRepository"/>
+    </bean>
+
+    <!-- CONTROLLER -->
+    <bean id="controller" class="learn.solarpanels.ui.Controller">
+        <constructor-arg ref="solarPanelService"/>
+        <constructor-arg ref="view"/>
+    </bean>
+
+</beans>

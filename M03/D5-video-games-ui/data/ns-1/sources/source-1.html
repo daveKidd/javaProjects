@@ -1,0 +1,141 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > App</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">videogames</a>
+</div>
+
+<h1>Coverage Summary for Class: App (videogames)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">App</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/15)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package videogames;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import videogames.data.DataAccessException;
+<i class="no-highlight">4</i>&nbsp;import videogames.data.VideoGameFileRepository;
+<i class="no-highlight">5</i>&nbsp;import videogames.domain.VideoGameService;
+<i class="no-highlight">6</i>&nbsp;import videogames.models.VideoGame;
+<i class="no-highlight">7</i>&nbsp;import videogames.models.VideoGameConsole;
+<i class="no-highlight">8</i>&nbsp;
+<i class="no-highlight">9</i>&nbsp;import java.util.ArrayList;
+<i class="no-highlight">10</i>&nbsp;import java.util.List;
+<i class="no-highlight">11</i>&nbsp;
+<b class="nc"><i class="no-highlight">12</i>&nbsp;public class App {</b>
+<i class="no-highlight">13</i>&nbsp;    public static void main(String[] args) {
+<b class="nc"><i class="no-highlight">14</i>&nbsp;        VideoGameFileRepository repository = new VideoGameFileRepository(&quot;./data/video-games.csv&quot;);</b>
+<i class="no-highlight">15</i>&nbsp;
+<b class="nc"><i class="no-highlight">16</i>&nbsp;        VideoGameService service = new VideoGameService(repository);</b>
+<i class="no-highlight">17</i>&nbsp;
+<i class="no-highlight">18</i>&nbsp;        try{
+<b class="nc"><i class="no-highlight">19</i>&nbsp;            VideoGame foundGame = repository.findById(3);</b>
+<b class="nc"><i class="no-highlight">20</i>&nbsp;            System.out.println(&quot;the found game is: &quot; + foundGame);</b>
+<b class="nc"><i class="no-highlight">21</i>&nbsp;            repository.create(new VideoGame(0,&quot;The Outer Worlds&quot;, VideoGameConsole.PC,20));</b>
+<b class="nc"><i class="no-highlight">22</i>&nbsp;            repository.update(new VideoGame(12,&quot;Minecraft&quot;, VideoGameConsole.XBOX,10));</b>
+<b class="nc"><i class="no-highlight">23</i>&nbsp;            repository.deleteById(11);</b>
+<b class="nc"><i class="no-highlight">24</i>&nbsp;            List&lt;VideoGame&gt; videoGames = service.findAll();</b>
+<i class="no-highlight">25</i>&nbsp;
+<b class="nc"><i class="no-highlight">26</i>&nbsp;            for(VideoGame videoGame : videoGames){</b>
+<b class="nc"><i class="no-highlight">27</i>&nbsp;                System.out.println(videoGame);</b>
+<b class="nc"><i class="no-highlight">28</i>&nbsp;            }</b>
+<b class="nc"><i class="no-highlight">29</i>&nbsp;        }catch(DataAccessException ex){</b>
+<b class="nc"><i class="no-highlight">30</i>&nbsp;            System.out.println(&quot;Problem retrieving data ):&quot;);</b>
+<b class="nc"><i class="no-highlight">31</i>&nbsp;        }</b>
+<i class="no-highlight">32</i>&nbsp;
+<i class="no-highlight">33</i>&nbsp;
+<i class="no-highlight">34</i>&nbsp;        //TODO todo example
+<i class="no-highlight">35</i>&nbsp;    }
+<i class="no-highlight">36</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-08-04 10:24</div>
+</div>
+</body>
+</html>

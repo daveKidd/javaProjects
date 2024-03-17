@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/journal-bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@200&display=swap" rel="stylesheet">  
+  <title>Video Games</title>
+</head>
+<body>
+
+  <div class="container">
+
+    <h1 class="my-4">Video Games</h1>
+
+    <!-- List of games starts here -->
+    <div id="listContainer">
+        
+      <h2>Video Game List</h2>
+  
+      <button class="btn btn-primary my-4" onclick="handleAddGame()">
+        <i class="bi bi-plus-circle"></i> Add Video Game
+      </button>
+  
+      <table class="table table-striped table-hover table-sm">
+        <thead class="thead-dark">
+          <tr>
+            <th>Title</th>
+            <th>Console</th>
+            <th>Price</th>
+            <th>Release Date</th>
+            <th>Single Player</th>
+            <th>&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody id="tableRows">
+        </tbody>
+      </table>    
+    </div>
+    
+    <!-- Form to add games starts here-->
+    <div id="formContainer" class="col-9">  
+      <h2 id="formHeading" class="mb-4">Add Video Game</h2>  
+      
+      <div id="errors"></div>
+  
+      <form id="form" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="section">Title:</label>
+          <input id="title" name="section" type="text" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="console">Console:</label>
+          <select id="console" name="console" class="form-control">
+            <option value="PS5">PS5</option>
+            <option value="SWITCH">Switch</option>    
+            <option value="PC">PC</option>  
+            <option value="XBOX">Xbox</option>            
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input step='0.01' value='0.00' placeholder='0.00' id="price" name="price" type="number" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="releaseDate">Release Date:</label>
+          <input id="releaseDate" name="releaseDate" type="date" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="singlePlayer">Single Player?</label>
+          <select id="singlePlayer" name="singlePlayer" class="form-control">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+        <div class="mt-4">
+          <button class="btn btn-success mr-2" id="formSubmitButton" type="submit">
+            <i class="bi bi-file-earmark-check"></i> Add Video Game
+          </button>
+          <button class="btn btn-secondary" type="button" onclick="resetState()">
+            <i class="bi bi-stoplights"></i> Cancel
+          </button>
+        </div>
+      </form>  
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>
